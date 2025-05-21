@@ -1,0 +1,23 @@
+replicaset.yaml
+apiVersion: apps/apiV1
+kind: replicaset
+metadata:
+  name:nginx
+spec:
+  replicaset: 1 # no .of pod copies
+  selector:
+  matchlables:
+     app:
+     nginx:
+  templates: #pod Templates
+    metadata:
+      lables:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx.id
+        ports:
+        - containers: 80
+
+
