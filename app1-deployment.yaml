@@ -1,0 +1,22 @@
+deployment.yaml
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: durgasaib
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: durgasaib
+  template:
+    metadata:
+      labels:
+        app: durgasaib
+    spec:
+      containers:
+      - name: c1
+        image: durgasaib/saidurgab
+        ports:
+        - containerPort: 80

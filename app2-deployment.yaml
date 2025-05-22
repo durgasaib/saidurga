@@ -1,22 +1,24 @@
+app2-deployment.yaml
+
 deployment.yaml
 
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: ecomm
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: ecomm
   template:
     metadata:
       labels:
-        app: nginx
+        app: ecomm
     spec:
       containers:
       - name: c1
-        image: nginx
+        image: durgasaib/ecomm
         ports:
         - containerPort: 80
