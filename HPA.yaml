@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: php-apache
+spec:
+ selector:
+  matchLables:
+   run: php-apache
+  spec:
+    containers:
+    - name: php-apache
+      image: registry.k8s.io/hpa-example
+      ports:
+      - containerPort: 80
+      resourses:
+        limits:
+          cpu: 500m
+        requests:
+          cpu: 200m
+----------
+apiVersion: v1
+kind: Services
+metadata:
+  name: php-apache
+  lables:
+    run: php-apache
+name: nginx
