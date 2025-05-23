@@ -1,0 +1,33 @@
+#Namespace
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: devops
+
+-----
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: durgasaib
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: durgasaib
+  template:
+    metadata:
+      labels:
+        app: durgasaib
+    spec:
+      containers:
+      - name: c1
+        image: durgasaib/durgasaib
+        ports:
+        - containerPort: 80
+        ------
+
+
+

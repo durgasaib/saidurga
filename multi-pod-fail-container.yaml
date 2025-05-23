@@ -1,0 +1,16 @@
+multi-pod-fail-container
+#Run Multi Containers pod
+apiVersion: v1
+kind: pod
+metadata: 
+  name: multi-pod-container-1
+spec:
+  container:
+  - name: c1
+    image: nginx
+    ports:
+     - containerPorts: 80
+  - name: c1
+    image: nginx
+    ports:
+     - containerPorts: 80
