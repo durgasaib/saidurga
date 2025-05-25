@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgress-Deployment
+  lables: 
+    tier: db 
+spec: 
+  replicas: 1
+  selector: 
+    metchlabels:
+      tier: db 
+    spec:
+      containers:
+      - name: postgress
+       image: postgress
+       ports:
+       - containersPorts:
+       env:
+       - name: POSTGRESS_PASSWORD
+        values: lms12345
