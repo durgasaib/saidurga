@@ -1,0 +1,23 @@
+Variables
+variable zone {
+description = "Please Input Availability Zone"
+default = "us-east-2a"
+}
+variable name {
+description = "Please Input Name For Volume"
+Ravi Krishna
+}
+# Variable for Conditional Statements
+variable environment {
+description = "Please Input Environment"
+}
+> cat ebs.tf
+# - Comment
+# EBS Volume
+resource "aws_ebs_volume" "vol-1" {
+availability_zone = var.zone
+size = var.environment == "prod" ? 20 : 5
+tags = {
+Name = var.name
+}
+}
