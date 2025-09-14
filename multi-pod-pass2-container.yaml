@@ -1,0 +1,20 @@
+multi-pod-pass2-container
+#Run Multi Containers pod
+apiVersion: v1
+kind: pod
+metadata: 
+  name: multi-pod-container-1
+spec:
+  container:
+  - name: c1
+    image: ubuntu:22.04
+    command: ["sleep"]
+    args: ["300"]
+  - name: c2
+    image: ubuntu:22.04
+    command: ["sleep"]
+    args: ["500"]
+  - name: c3
+    image: nginx
+    ports:
+    - container: 80
